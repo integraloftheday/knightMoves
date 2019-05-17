@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="path.js"></script>
+</head>
+
+<body>
+ <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+</body>
+<script>
+function graph(){
+  var trace1 = {
+    x: x,
+    y: y,
+
+    type: 'scatter',
+    mode: 'lines',
+    marker:{
+    //color: value
+  }
+  };
+
+  var data = [trace1];
+  var layout = {
+    title:'Knight Paths on a Spirally Numbered Board '
+  };
+  Plotly.newPlot('myDiv', data);
+  var update = {
+  width: 1000,  // or any new width
+  height: 1000  // " "
+};
+
+Plotly.relayout('myDiv', update);
+}
+graph();
+</script>
+
+</html>
