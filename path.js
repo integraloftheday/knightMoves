@@ -1,4 +1,4 @@
-var MovesCode=" size= 5000; \n steps=5000; \n function knightMoves(x,y){ \n \t upright=[x+1,y+2]; \n \t upleft=[x-1,y+2]; \n \t rightup=[x+2,y+1]; \n \t rightdown=[x+2,y-1]; \n \t downright=[x+1,y-2]; \n \t downleft=[x-1,y-2]; \n \t leftdown=[x-2,y-1]; \n \t leftup=[x-2,y+1]; \n \t return([upright,upleft,rightup,rightdown,downright,downleft,leftdown,leftup]); };";
+var MovesCode=" size= 5000; \n steps=5000; \n function knightMoves(x,y){ \n \t upright=[x+1,y+2]; \n \t upleft=[x-1,y+2]; \n \t rightup=[x+2,y+1]; \n \t rightdown=[x+2,y-1]; \n \t downright=[x+1,y-2]; \n \t downleft=[x-1,y-2]; \n \t leftdown=[x-2,y-1]; \n \t leftup=[x-2,y+1]; \n \t return([upright,upleft,rightup,rightdown,downright,downleft,leftdown,leftup]); }";
 var size=100;
 var steps=100;
 var C; 
