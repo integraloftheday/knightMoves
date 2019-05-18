@@ -1,6 +1,10 @@
-var MovesCode=" size= 1000; \n steps=1000; \n function knightMoves(x,y){ \n \t upright=[x+1,y+2]; \n \t upleft=[x-1,y+2]; \n \t rightup=[x+2,y+1]; \n \t rightdown=[x+2,y-1]; \n \t downright=[x+1,y-2]; \n \t downleft=[x-1,y-2]; \n \t leftdown=[x-2,y-1]; \n \t leftup=[x-2,y+1]; \n \t return([upright,upleft,rightup,rightdown,downright,downleft,leftdown,leftup]); };";
+var MovesCode=" size= 5000; \n steps=5000; \n function knightMoves(x,y){ \n \t upright=[x+1,y+2]; \n \t upleft=[x-1,y+2]; \n \t rightup=[x+2,y+1]; \n \t rightdown=[x+2,y-1]; \n \t downright=[x+1,y-2]; \n \t downleft=[x-1,y-2]; \n \t leftdown=[x-2,y-1]; \n \t leftup=[x-2,y+1]; \n \t return([upright,upleft,rightup,rightdown,downright,downleft,leftdown,leftup]); };";
 var size=100;
 var steps=100;
+var C; 
+var x;
+var y;
+var value;
 
 //FIELD Generation
 var UlamSprial=[]
@@ -117,18 +121,22 @@ function knightLowestandTrue(x,y,cords,moves){
 
   return(lowestmove);
 }
+function pathAlterations(){
+
+}
 
 function run(size,steps){
 eval(MovesCode);
 var path=[]
 var pathx=[]
 var pathy=[]
-var C=Sprial(xCord,yCord,size,0);
+C=Sprial(xCord,yCord,size,0);
 C[0]=[0,0,1,true];
-var L=[0,0];
+var L=[0,0]; 
 var NewL;
 var I;
 var Steps=0;
+pathAlterations();
 while(Steps<steps){
   NewL=knightLowestandTrue(L[0],L[1],C,knightMoves(L[0],L[1]));
   /*if(NewL=false){
