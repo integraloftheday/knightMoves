@@ -8,10 +8,20 @@
 
 <body>
  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-
+ <textarea id="MovesCode"></textarea> 
+ <button onclick="graph(true);">Graph</button>
 </body>
 <script>
-function graph(){
+
+function graph(news){
+  var dataC=run(10000,75000);
+  console.log(dataC[0].slice(0,20));
+  var x = dataC[1];
+  var y = dataC[2];
+  var value=dataC[0];
+  if(news==true){
+  MovesCode = document.getElementById('MovesCode').value;
+  }
   var trace1 = {
     x: x,
     y: y,
@@ -29,13 +39,13 @@ function graph(){
   };
   Plotly.newPlot('myDiv', data);
   var update = {
-  width: 1000,  // or any new width
-  height: 1000  // " "
+  width: window.innerHeight,  // or any new width
+  height: window.innerHeight  // " "
 };
 
 Plotly.relayout('myDiv', update);
 }
-graph();
+graph(false);
 </script>
 
 </html>

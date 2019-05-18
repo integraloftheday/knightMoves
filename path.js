@@ -1,4 +1,4 @@
-
+var MovesCode="1";
 
 
 //FIELD Generation
@@ -62,24 +62,24 @@ function knightMoves1(x,y){
 
 }
 
-function knightMoves(x,y){
-  var dagsteps=3;
+function knightMoves2(x,y){
+  var dagsteps=4;
   var moves=[]
   for(i=0;i<dagsteps;i++){
-    moves.push([x+16*i,y+i]);
+    moves.push([x+i,y+i]);
   }
   for(i=0;i<dagsteps;i++){
-    moves.push([x-i,y-16*i]);
+    moves.push([x-i,y-i]);
   }
   for(i=0;i<dagsteps;i++){
     moves.push([x-i,y+i]);
   }
   for(i=0;i<dagsteps;i++){
-    moves.push([x+16*i,y-i]);
+    moves.push([x+i,y-i]);
   }
   return(moves);
 }
-/* BASE FUNCTION FOR 2048
+// BASE FUNCTION FOR 2048
 function knightMoves(x,y){
   upright=[x+1,y+2];
   upleft=[x-1,y+2];
@@ -91,7 +91,9 @@ function knightMoves(x,y){
   leftup=[x-2,y+1];
   return([upright,upleft,rightup,rightdown,downright,downleft,leftdown,leftup]);
 
-}*/
+}
+
+
 function knightLowestandTrue(x,y,cords,moves){
   var lowestnumber=100000000000000;
   var lowestmove=[];
@@ -114,6 +116,7 @@ function knightLowestandTrue(x,y,cords,moves){
   return(lowestmove);
 }
 function run(size,steps){
+eval(MovesCode); 
 var path=[]
 var pathx=[]
 var pathy=[]
@@ -145,11 +148,7 @@ while(Steps<steps){
 return([path,pathx,pathy]);
 }
 
-var dataC=run(10000,75000);
-console.log(dataC[0].slice(0,20));
-var x = dataC[1];
-var y = dataC[2];
-var value=dataC[0];
+
 /*var trace1 = {
   x: x,
   y: y,
