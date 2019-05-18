@@ -2,41 +2,92 @@
 <html>
 
 <head>
- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="path.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+
 </head>
 
 <body>
- <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
- <textarea id="MovesCode"></textarea> 
- <button onclick="graph(true);">Graph</button>
+  <div class="container-fluid"> 
+    <div class="row">
+      <div class="col">
+        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+      </div>
+      <div class="col my-auto text-center">
+        
+        <div class="row">  
+            <div class="col text-center">
+              <h4>Define a function "knightMoves(x,y)" that has an output of possible move locations in terms of an 
+                array [[x1,y1],[x2,y2]...] then press graph to see the cordesponding path of the knight on the Ulam Sprial. 
+                use size=Value; and steps=Value; to specify the steps the knight takes and the size of the board. 
+              </h4> 
+              <pre><code class="javascript"><textarea id="MovesCode"  rows="20" cols="50"></textarea> </code></pre>
+              </div>
+      </div>
+      <div class="row">
+          <div class="col text-center">
+        <button onclick="graph(true);">Graph</button>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col text-center">
+            <br>
+            <h4>Series of Points Visited</h4>
+          <h4 id="series"> </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 <script>
 
 function graph(news){
-  var dataC=run(10000,75000);
+  if(news==true){
+  MovesCode = document.getElementById('MovesCode').value;
+  console.log(MovesCode);
+  eval(MovesCode);
+  
+  console.log("evaluated");
+  }
+  var dataC=run(size,steps);
+  var series=dataC[0].slice(0,20);
   console.log(dataC[0].slice(0,20));
+  document.getElementById("series").innerHTML = series;
   var x = dataC[1];
   var y = dataC[2];
   var value=dataC[0];
-  if(news==true){
-  MovesCode = document.getElementById('MovesCode').value;
+  var direct=[]
+  for(i=5;i<x.length;i++){
+    direct.push(i)
   }
   var trace1 = {
     x: x,
     y: y,
 
     type: 'scatter',
-    mode: 'lines',
+    mode: 'lines+markers',
+    line:{
+      color:'rgb(55, 128, 191)'
+    },
     marker:{
-    //color: value
+    color: direct
   }
   };
 
   var data = [trace1];
   var layout = {
-    title:'Knight Paths on a Spirally Numbered Board '
+    //title:'Knight Paths on a Spirally Numbered Board '
   };
+  
   Plotly.newPlot('myDiv', data);
   var update = {
   width: window.innerHeight,  // or any new width
@@ -46,6 +97,7 @@ function graph(news){
 Plotly.relayout('myDiv', update);
 }
 graph(false);
+document.getElementById("MovesCode").innerHTML = MovesCode;
 </script>
 
 </html>

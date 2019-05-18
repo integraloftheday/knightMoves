@@ -1,5 +1,6 @@
-var MovesCode="1";
-
+var MovesCode=" size= 1000; \n steps=1000; \n function knightMoves(x,y){ \n \t upright=[x+1,y+2]; \n \t upleft=[x-1,y+2]; \n \t rightup=[x+2,y+1]; \n \t rightdown=[x+2,y-1]; \n \t downright=[x+1,y-2]; \n \t downleft=[x-1,y-2]; \n \t leftdown=[x-2,y-1]; \n \t leftup=[x-2,y+1]; \n \t return([upright,upleft,rightup,rightdown,downright,downleft,leftdown,leftup]); };";
+var size=100;
+var steps=100;
 
 //FIELD Generation
 var UlamSprial=[]
@@ -64,7 +65,7 @@ function knightMoves1(x,y){
 
 function knightMoves2(x,y){
   var dagsteps=4;
-  var moves=[]
+  var moves=[];
   for(i=0;i<dagsteps;i++){
     moves.push([x+i,y+i]);
   }
@@ -80,6 +81,7 @@ function knightMoves2(x,y){
   return(moves);
 }
 // BASE FUNCTION FOR 2048
+
 function knightMoves(x,y){
   upright=[x+1,y+2];
   upleft=[x-1,y+2];
@@ -115,8 +117,9 @@ function knightLowestandTrue(x,y,cords,moves){
 
   return(lowestmove);
 }
+
 function run(size,steps){
-eval(MovesCode); 
+eval(MovesCode);
 var path=[]
 var pathx=[]
 var pathy=[]
