@@ -42,6 +42,8 @@
             <br>
             <h4>Series of Points Visited</h4>
           <h4 id="series"> </h4>
+          <div> <a href="listD.html">List Space</a> <a href="listH.html">List Commas</a> <a href="listV.html">List Vertical</a></div>
+          <p></p>
         </div>
       </div>
     </div>
@@ -49,23 +51,31 @@
 </div>
 </body>
 <script>
-
+var dataC;
+/*var inputCode;
+var inputCodeB;
+if (window.location.hash.substring(1) != ""){
+    inputCodeB=true; 
+    inputCode=window.location.hash.substring(1); 
+    }*/
 function graph(news){
   if(news==true){
+
   MovesCode = document.getElementById('MovesCode').value;
   console.log(MovesCode);
+
   eval(MovesCode);
   
   console.log("evaluated");
   }
-  var dataC=run(size,steps);
- 
+  dataC=run(size,steps);
+  localStorage.setItem("FullList","1,"+(dataC[0].slice(0,dataC[0].length-1)).toString()); //For list.html
   console.log(dataC[0].slice(0,20));
 
   x = dataC[1];
   y = dataC[2];
   value=dataC[0];
-  var series=(value.slice(0,15)).toString()+"..."+value[value.length-2].toString();
+  var series="1,"+(value.slice(0,15)).toString()+"..."+value[value.length-2].toString();
   document.getElementById("series").innerHTML = series;
   var direct=[]
   for(i=5;i<x.length;i++){
