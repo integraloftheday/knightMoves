@@ -27,7 +27,7 @@
             <div class="col text-center">
               <h4>Define a function "knightMoves(x,y)" that has an output of possible move locations in terms of an 
                 array [[x1,y1],[x2,y2]...] then press graph to see the cordesponding path of the knight on the Ulam Sprial. 
-                Use size=Value; and steps=Value; to specify the steps the knight takes and the size of the board. 
+                Use size=Value; and steps=Value; to specify the steps the knight takes and the size of the board. Click share to create a link to the current function. 
               </h4> 
               <pre><code class="javascript"><textarea id="MovesCode"  rows="20" cols="50"></textarea> </code></pre>
               </div>
@@ -35,6 +35,7 @@
       <div class="row">
           <div class="col text-center">
         <button onclick="graph(true);">Graph</button>
+        <button onclick="linkCopy();">Share</button>
         </div>
       </div>
       <div class="row">
@@ -68,6 +69,22 @@ function graph(news){
   
   console.log("evaluated");
   }
+  else{ //enables the use of hashes in the url 
+    if (window.location.hash.substring(1) != ""){
+      MoveCode=window.location.hash.substring(1);
+      MoveCode=MoveCode.replace(/%20/g," ");
+      CodeDisplay=MoveCode.replace(/;/g,"; \n ");
+      CodeDisplay=CodeDisplay.replace(/{/g,"{ \n ");
+      CodeDisplay=CodeDisplay.replace(/}/g,"} \n ");
+      document.getElementById("MovesCode").innerHTML = CodeDisplay;
+      return;
+    }
+    else{
+      document.getElementById("MovesCode").innerHTML = MovesCode;
+    }
+  }
+
+
   dataC=run(size,steps);
   localStorage.setItem("FullList","1,"+(dataC[0].slice(0,dataC[0].length-1)).toString()); //For list.html
   console.log(dataC[0].slice(0,20));
@@ -109,7 +126,7 @@ function graph(news){
 Plotly.relayout('myDiv', update);
 }
 graph(false);
-document.getElementById("MovesCode").innerHTML = MovesCode;
+//document.getElementById("MovesCode").innerHTML = MovesCode;
 </script>
 
 </html>

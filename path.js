@@ -159,6 +159,41 @@ while(Steps<steps){
 return([path,pathx,pathy]);
 }
 
+function linkGenerator(){
+  Code=document.getElementById('MovesCode').value;
+  linkHash=Code.replace(/(\r\n|\n|\r)/gm,""); //make it one line
+  linkHash=linkHash.replace(/ /g, "%20") //get rid of spaces
+  linkHash=linkHash.replace(/ \t /g, "%20") //get rid of tabs
+
+  //Remove anything behind a "#" incase the link was already provided
+  s=window.location.href 
+
+  var n = s.indexOf('#');
+  s = s.substring(0, n != -1 ? n : s.length);
+  link= s+"#"+linkHash
+
+  return(link);
+}
+
+function copyToClipboard(text) {
+  var dummy = document.createElement("textarea");
+  // to avoid breaking orgain page when copying more words
+  // cant copy when adding below this code
+  // dummy.style.display = 'none'
+  document.body.appendChild(dummy);
+  //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+  dummy.value = text;
+  dummy.select();
+  document.execCommand("copy");
+  document.body.removeChild(dummy);
+}
+
+function linkCopy(){
+  var copyText = linkGenerator();
+  copyToClipboard(copyText);
+}
+
+
 
 /*var trace1 = {
   x: x,
