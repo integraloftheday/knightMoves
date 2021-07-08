@@ -1,5 +1,5 @@
 # knightMoves
-Allows for the creation of paths and rules to move pieces along an Ulam Sprial. 
+Allows for the creation of paths and rules to move pieces along an Ulam Sprial.
 
 ## Inspiration 
 This website is inspired by [The Trapped Knight - Numberphile](https://www.youtube.com/watch?v=RGQe8waGJ4w&t=1s) and allows the user to program their own set of rules for a piece travling along ulams spiral. 
