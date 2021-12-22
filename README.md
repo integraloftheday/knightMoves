@@ -9,4 +9,4 @@ This website is inspired by [The Trapped Knight - Numberphile](https://www.youtu
 * It can be used to publish new integer sequences for example, [A309382](https://oeis.org/A309382).
 
 ## Deployments 
-The site can be found at [http://ulamsknights.tk/](http://ulamsknights.tk/) and [https://integraloftheday.github.io/knightMoves/](https://integraloftheday.github.io/knightMoves/)
+The site can be found at [https://integraloftheday.github.io/knightMoves/](https://integraloftheday.github.io/knightMoves/)
